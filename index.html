@@ -18,16 +18,73 @@
 
     <!-- include our JS+JSX for the React Appliccation -->
 <script type="text/babel">
+class Team extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      name: this.props.name,
+      logo: this.props.
+      logo,
+      score: 0,
+      shoots: 0
+
+      }
+
+
+  }
+  shootMeathod = (event) => {
+    this.playTrack()
+    this.setState({
+      shoots:  this.state.shoots +1
+
+    })
+    if(Math.random()> .5){
+      this.setState({
+        score: this.state.score +1
+      })
+
+    }
+  }
+  playTrack() {
+  const stream = new Audio('./sound/ballhit.mp3')
+stream.play()
+
+
+}
+
+    render(){
+      return(
+        <div> 
+        <h1>{this.state.name} </h1>
+        <img src = {this.state.logo} />
+        <h2>score: {this.state.score} </h2>
+        <h2>shoots: {this.state.shoots} </h2>
+        <button onClick = {this.shootMeathod}> shoot </button>
+        </div>
+      )
+    }
+     
+
+    }
+    
+    
+
+
 
 // An App component under which all other components will be added
 function App (props) {
   return (
     <div>
       <h1>Welcome to the Sports Game starter!</h1>
-      <em>This file represents the way your code should look after completing the <strong>Setup</strong steps in the instructions.</em>
+      <em>This file represents the way your code should look after completing the <strong>Setup</strong> steps in the instructions.</em>
+      < Team name = "Chicago" logo = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.3QQkTG5cCrP00eguWET0XQAAAA%26pid%3DApif=1" /> 
+      <Team name = "Wisconson" logo = "http://www.mapsofworld.com/usa/state-flags/images/wisconsin-flag.gif "/>
+      
     </div>
   )
 }
+
+
 
 
 
